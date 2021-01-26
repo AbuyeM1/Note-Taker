@@ -1,7 +1,6 @@
 
 const dataPath = require("../db/db.json");
 const fs = require('fs');
-// const path = require('path');
 let id = dataPath.length + 1;
 
 
@@ -25,13 +24,13 @@ res.json(dataPath);
  });
  app.delete("/api/notes/:id", function(req, res) {
         let getId = req.params.id;
-        for (let i = 0; i<dataPath.length; i++) {
+        for (let i = 0; i < dataPath.length; i++) {
             console.log(dataPath[i].id, parseInt(getId));
             if (dataPath[i].id === parseInt(getId)){
                 dataPath.splice(i, 1);
             }
         }
- fs.writeFile("./db/db.json", JSON.stringify(dataPath), function(err) {
+        fs.writeFile("./db/db.json", JSON.stringify(dataPath), function(err) {
             if (err) throw err;
             console.log("Ready to read");
         })
