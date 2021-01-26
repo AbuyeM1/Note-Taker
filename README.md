@@ -4,26 +4,60 @@
  - [Description](#description)
 
  - [Installation](#installation)
+
+ - [Repository](#Repository)
  
  - [CodeSnippets](#CodeSnippets)
 
  - [License](#license)
 
- - [BuiltWith](#BuiltWith)
+ - [TechnonlogyUse](#TechnonlogyUse)
 
  - [Question](#Question)
 
 ## Description
 
+ * This is a simple Note Taker application that allows users to add, view saved notes and also delete the notes if the user don't need that note anymore. This application uses an express backend and save and retrieve note data from a JSON file
+
 ## Installation
+ * npm init 
+ * npm install inquirer
+
+ ## Repository
+
+ * Run the following command at the terminal for your answer.
+
+ * node server.js
 
 ## CodeSnippets
+ * This Code a function for handling the requests and responses for delete note.
+       
+       app.delete("/api/notes/:id", (req, res) => {
 
-## BuiltWith
+          let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+
+          let noteId = (req.params.id).toString();
+
+           noteList = noteList.filter(selected => {
+
+        return selected.id != noteId;
+       })
+       fs.writeFileSync("./db/db.json", JSON.stringify(noteList));
+
+       res.json(noteList);
+
+       });
+
+## TechnonlogyUse
+
+ * Express.js
+ * HTML And CSS
+ * Node.js
+ * Javascript
+ * inquirer
 
 ## License
 
- 
  ![badge](https://shields.io/badge/license-MIT-green)
 
 

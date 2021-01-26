@@ -1,4 +1,4 @@
-
+// Dependencies for Require 
 const fs = require("fs");
 const express = require("express");
 const path = require("path");
@@ -23,7 +23,7 @@ app.get("/*", (req, res) => {
 
 
 
-// This is for post note
+//Create a function  for post note  the requests and responses 
 app.post("/api/notes", (req, res) => {
     let newNote = req.body;
     let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
@@ -37,7 +37,7 @@ app.post("/api/notes", (req, res) => {
 
 
 
-//This for for delete note 
+// Create a function for handling the requests and responses for delete note 
 app.delete("/api/notes/:id", (req, res) => {
     let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     let noteId = (req.params.id).toString();
