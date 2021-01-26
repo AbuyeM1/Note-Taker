@@ -24,10 +24,15 @@ res.json(dataPath);
 
  });
  app.delete("/api/notes/:id", function(req, res) {
+
         let getId = req.params.id;
+        
         for (let i = 0; i < dataPath.length; i++) {
+
             console.log(dataPath[i].id, parseInt(getId));
+
             if (dataPath[i].id === parseInt(getId)){
+
                 dataPath.splice(i, 1);
             }
         }
