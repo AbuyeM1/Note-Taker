@@ -1,3 +1,4 @@
+
 const fs = require("fs");
 const express = require("express");
 const path = require("path");
@@ -15,7 +16,7 @@ app.get("/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
-//route to read the `db.json` 
+//This is for route to read the `db.json` 
 app.get("/api/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/db/db.json"));
 });
@@ -24,7 +25,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
-
+// This is for post note
 app.post("/api/notes", (req, res) => {
     let newNote = req.body;
     let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
@@ -37,7 +38,7 @@ app.post("/api/notes", (req, res) => {
     res.json(noteList);
 })
 
-//delete note 
+//This for for delete note 
 app.delete("/api/notes/:id", (req, res) => {
     let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
     let noteId = (req.params.id).toString();
