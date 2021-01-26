@@ -4,7 +4,6 @@ const express = require("express");
 const path = require("path");
 
 const app = express();
-
 const PORT = process.env.PORT || 8000;
 
 app.use(express.static('public'));
@@ -20,18 +19,20 @@ app.get("/notes", (req, res) => {
 app.get("/api/notes", (req, res) => {
     res.sendFile(path.join(__dirname, "/db/db.json"));
 });
-
-app.get("*", (req, res) => {
+app.get("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 
 // This is for post note
 app.post("/api/notes", (req, res) => {
     let newNote = req.body;
+
     let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+
     let notelength = (noteList.length).toString();
 
-    newNote.id = notelength;   
+    newNote.id = notelength;
+
     noteList.push(newNote);
 
     fs.writeFileSync("./db/db.json", JSON.stringify(noteList));
@@ -41,17 +42,16 @@ app.post("/api/notes", (req, res) => {
 //This for for delete note 
 app.delete("/api/notes/:id", (req, res) => {
     let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+
     let noteId = (req.params.id).toString();
 
-    
-    noteList = noteList.filter(selected =>{
+    noteList = noteList.filter(selected => {
         return selected.id != noteId;
     })
-
     fs.writeFileSync("./db/db.json", JSON.stringify(noteList));
+
     res.json(noteList);
 });
 
-
-//listen tot he port when deployed
-app.listen(PORT, () => console.log("Server listening on port " + PORT));
+//listen to the PORT
+app.listen(PORT, () => console.log("Listening on PORT: " + PORT));
