@@ -17,7 +17,13 @@
 
 ## Description
 
- * This is a simple Note Taker application that allows users to add, view saved notes and also delete the notes if the user don't need that note anymore. This application uses an express backend and save and retrieve note data from a JSON file
+ * This is a simple Note Taker application that allows users to add, view saved notes and 
+ also delete the notes if the user don't need that note anymore. 
+ This application uses an express backend and save and retrieve note data from a JSON file
+
+  ![alttext](https://lh3.googleusercontent.com/TW9xGLzyapBdzXA59EMVs_teFaBlkDd1gut7lrIDqHFkP_4Y6jpRXc_Rxu_niMLWt8bIhqM=s500)
+
+  ![alttext](https://lh3.googleusercontent.com/cAwVFJ3vF7UNQV_WsvmB7_W1gHuHScPiOmCilZV4eRHf65oWdnvLCsYntdUZFQbfeo4Pdx4=s500)
 
 ## Installation
  * npm init 
