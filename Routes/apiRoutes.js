@@ -10,12 +10,13 @@ app.get('api/notes', function(req, res) {
 });
 
 app.post('/api/notes', function(req, res) {
-        req.body.id = id++;
+      req.body.id = id++;
 
         dataPath.push(req.body);
 
 fs.writeFile("./db/db.json", JSON.stringify(dataPath), function(err) {
             if (err) throw err;
+           
             console.log("Ready to read");
  });
 
@@ -32,6 +33,7 @@ res.json(dataPath);
         }
         fs.writeFile("./db/db.json", JSON.stringify(dataPath), function(err) {
             if (err) throw err;
+          
             console.log("Ready to read");
         })
 
