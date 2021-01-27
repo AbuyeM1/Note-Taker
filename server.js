@@ -1,3 +1,5 @@
+
+
 // Dependencies for Require 
 const fs = require("fs");
 const express = require("express");
@@ -48,5 +50,5 @@ app.delete("/api/notes/:id", (req, res) => {
     res.json(noteList);
 });
 
-//listen to the PORT
+// For listen to the PORT
 app.listen(PORT, () => console.log("Listening on PORT: " + PORT));
