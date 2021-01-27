@@ -4,6 +4,8 @@
 const fs = require("fs");
 const express = require("express");
 const path = require("path");
+
+// This is  Setting for  express
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -25,7 +27,7 @@ app.get("/*", (req, res) => {
 
 
 
-//Create a function  for post note  the requests and responses 
+// Create a function  for post note  the requests and responses 
 app.post("/api/notes", (req, res) => {
     let newNote = req.body;
     let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
