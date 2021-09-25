@@ -1,90 +1,88 @@
-   # Note-Taker
+# Note-Taker
 
 ## Table of Contents
- - [Description](#description)
 
- - [Deployed Link](#deployed-link)
+- [Description](#description)
 
- - [Installation](#installation)
+- [Deployed Link](#deployed-link)
 
- - [Repository](#Repository)
- 
- - [CodeSnippets](#CodeSnippets)
+- [Installation](#installation)
 
- - [License](#license)
+- [Repository](#Repository)
 
- - [TechnonlogyUse](#Technonlogy-Use)
+- [CodeSnippets](#CodeSnippets)
 
- - [Question](#Question)
+- [License](#license)
+
+- [TechnonlogyUse](#Technonlogy-Use)
+
+- [Question](#Question)
 
 ## Description
 
- * This is a simple Note Taker application that allows    users to add, view saved notes and 
-  also delete the notes if the user don't need that note anymore. 
-   This application uses an express backend and save and retrieve note data from a JSON file
+- This is a simple Note Taker application that allows users to add, view saved notes and
+  also delete the notes if the user don't need that note anymore.
+  This application uses an express backend and save and retrieve note data from a JSON file
 
-  ![alttext](https://lh3.googleusercontent.com/TW9xGLzyapBdzXA59EMVs_teFaBlkDd1gut7lrIDqHFkP_4Y6jpRXc_Rxu_niMLWt8bIhqM=s500)
-
-  ![alttext](https://lh3.googleusercontent.com/cAwVFJ3vF7UNQV_WsvmB7_W1gHuHScPiOmCilZV4eRHf65oWdnvLCsYntdUZFQbfeo4Pdx4=s500)
+![img](./public/assets/image/ScreenShot20.png)
 
 ## Deployed Link
 
- * https://abuyem1.github.io/Note-Taker/
+- https://sleepy-inlet-68851.herokuapp.com
 
 ## Installation
- * npm init 
- * npm install inquirer
 
- ## Repository
+- npm init
+- npm install inquirer
 
- * Run the following command at the terminal for your answer.
+## Repository
 
- * node server.js
+- Run the following command at the terminal for your answer.
+
+- node server.js
 
 ## CodeSnippets
- * This Code a function for handling the requests and responses for delete note.
-       
-       app.delete("/api/notes/:id", (req, res) => {
 
-          let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
+- This Code a function for handling the requests and responses for delete note.
 
-          let noteId = (req.params.id).toString();
+      app.delete("/api/notes/:id", (req, res) => {
 
-           noteList = noteList.filter(selected => {
+         let noteList = JSON.parse(fs.readFileSync("./db/db.json", "utf8"));
 
-        return selected.id != noteId;
-       })
-       fs.writeFileSync("./db/db.json", JSON.stringify(noteList));
+         let noteId = (req.params.id).toString();
 
-       res.json(noteList);
+          noteList = noteList.filter(selected => {
 
-       });
+       return selected.id != noteId;
+      })
+      fs.writeFileSync("./db/db.json", JSON.stringify(noteList));
+
+      res.json(noteList);
+
+      });
 
 ## Technonlogy Use
 
- * Express.js
- * HTML And CSS
- * Node.js
- * Javascript
- 
+- Express.js
+- HTML And CSS
+- Node.js
+- Javascript
 
 ## License
 
- ![badge](https://shields.io/badge/license-MIT-green)
-
+![badge](https://shields.io/badge/license-MIT-green)
 
 ## Question
-  
- * [Email](abuye20@yahoo.com)
 
- * [LinkedIn](https://www.linkedin.com/in/abuye-mamuye-5a49921b0/)
+- [Email](abuye20@yahoo.com)
 
- * [GitHub](https://github.com/AbuyeM1)
+- [LinkedIn](https://www.linkedin.com/in/abuye-mamuye-5a49921b0/)
+
+- [GitHub](https://github.com/AbuyeM1)
 
 ## Acknowledgments
- - Jerome Chenette (Instructor)
- - Manuel Nunes (TA)
- - Mahisha Manikandan (TA)
- - UC Berkeley Coding Bootcamp
 
-
+- Jerome Chenette (Instructor)
+- Manuel Nunes (TA)
+- Mahisha Manikandan (TA)
+- UC Berkeley Coding Bootcamp
